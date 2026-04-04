@@ -143,17 +143,21 @@
     <section id="mcts">
       <h2>Overview</h2>
       <p>
-        (a) The mining process of M2-Miner consists of four phases: Selection, Expansion, Simulation, and Backpropagation.
-        During these phases, InferAgent, OrchestraAgent, and JudgeAgent are employed for exploration guidance, acceleration, and state evaluation.
-        (b) Intent recycling process. For a selected node, its corresponding trajectory is first passed through a dedicated intent-recycling filter,
-        then a novel intent is generated via MLLM. If the JudgeAgent verifies that the generated intent aligns with the trajectory, the recycling is considered complete.
+        Given the urgent demand for high-quality GUI agent data and the laborious challenge of manually
+annotating interaction trajectories, we propose M2-Miner, the first automated mobile GUI agent
+data-mining framework based on Monte Carlo Tree Search (MCTS), as illustrated in Fig. 1. Based on vanilla MCTS, we specifically
+employ a collaborative multi-agent framework, which comprises an InferAgent, OrchestraAgent, and JudgeAgent, to enhance the expansion and simulation phases. Our approach reduces costs and
+improves both efficiency and mining success rate. Furthermore, we propose an intent recycling
+strategy to fully extract valid trajectories from the intent trajectory trees. Finally, to further boost the
+mining success rate, we introduce a model-in-the-loop training strategy to continuously evolve the
+capabilities of these agents.
       </p>
 
       <!-- 图片插入示例 2：MCTS流程+intent recycling 总图 -->
       <figure>
         <img src="assets/M2_Miner.png" alt="M2-Miner MCTS overview and intent recycling">
         <figcaption>
-          Figure 2. Overview. (a) The mining process of M2-Miner consists of four phases: Selection, Expansion, Simulation, and Backpropagation.
+          Figure 1. Overview. (a) The mining process of M2-Miner consists of four phases: Selection, Expansion, Simulation, and Backpropagation.
         During these phases, InferAgent, OrchestraAgent, and JudgeAgent are employed for exploration guidance, acceleration, and state evaluation.
         (b) Intent recycling process. For a selected node, its corresponding trajectory is first passed through a dedicated intent-recycling filter,
         then a novel intent is generated via MLLM. If the JudgeAgent verifies that the generated intent aligns with the trajectory, the recycling is considered complete.
@@ -172,7 +176,7 @@
         <!-- 方式A：相对路径（推荐） -->
         <img src="assets/Miner_framework.png" alt="Infrastructure Framework figure">
         <figcaption>
-          Figure 1. Infrastructure framework for GUI agent data mining.
+          Figure 2. Infrastructure framework for GUI agent data mining.
         </figcaption>
       </figure>
     </section>
