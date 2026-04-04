@@ -74,10 +74,11 @@
     }
     /* 让 header 区域里的作者/单位一起居中 */
     header { text-align: center; }
+    
     .results-grid{
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px 22px;          /* 行/列间距，可改 */
       align-items: start;
     }
     
@@ -87,15 +88,17 @@
       flex-direction: column;
     }
     
-    /* 关键：同一行图片等高 */
     .results-grid figure img{
       width: 100%;
-      height: clamp(180px, 25vw, 320px); /* 你可以改成固定值如 260px */
-      object-fit: contain;               /* 不裁剪，等比缩放，留空白 */
+      height: clamp(180px, 25vw, 320px);
+      object-fit: contain;
       display: block;
     }
     
-    /* 独占一行的图可以给更高的高度（可选） */
+    .results-grid figure.full{
+      grid-column: 1 / -1;     /* 跨两列，独占一行 */
+    }
+    
     .results-grid figure.full img{
       height: clamp(220px, 30vw, 420px);
     }
@@ -103,6 +106,7 @@
     .results-grid figcaption{
       margin-top: 6px;
     }
+
     
     .bibtex{
       background: #f6f6f6;
@@ -264,7 +268,8 @@ the intent generation process at each stage. The proposed progressive model-in-t
       <figure>
         <img src="assets/intent_construct.png" alt="Progressive model-in-the-loop training strategy">
         <figcaption>
-          Figure 3. Progressive model-in-the-loop training strategy.
+          Figure 3. Intent Generation. Our intent generation method consists of three stages: basic intents
+generation, complex intents generation, and intent recycling.
         </figcaption>
       </figure>
     </section>
@@ -276,34 +281,36 @@ the intent generation process at each stage. The proposed progressive model-in-t
       </p>
 
       <section class="results-grid">
-        <!-- Table 1 + Figure 4 同一行 -->
         <figure>
           <img src="assets/gui_dataset.png" alt="Experimental results">
-          <figcaption>Table 1. Statistics of different datasets.</figcaption>
+          <figcaption>Table 1. Statistics of different datasets. Size: number of images;
+Su.RL: suitability for reinforcement learning algorithms; Auto:
+auto-annotated data; AvgStp: average step length; Trajs: number
+of trajectories; Cost: estimated data production cost (USD). Cost
+per image: estimated cost of producing one image (USD).</figcaption>
         </figure>
       
         <figure>
           <img src="assets/dataset_quality.png" alt="Experimental results">
-          <figcaption>Figure 4. Evaluation of data quality.</figcaption>
+          <figcaption>Figure 4. Evaluation of data quality. M2: our mined dataset, M2-QR: our dataset after human quality review.</figcaption>
         </figure>
       
-        <!-- Table 2 独占一行（跨两列） -->
         <figure class="full">
           <img src="assets/gui_benchmark.png" alt="Experimental results">
-          <figcaption>Table 2. Performance comparison on GUI agent benchmarks.</figcaption>
+          <figcaption>Table 2. Performance comparison on GUI agent benchmarks (AC-Low, AC-High, AITZ, GUIOdyssey, and CAGUI). Bold and underline indicate the best and second-best results.</figcaption>
         </figure>
       
-        <!-- Figure 5 + Figure 6 同一行 -->
         <figure>
           <img src="assets/mcts_agent_ablation.png" alt="Experimental results">
-          <figcaption>Figure 5. Ablation study of the collaborative multi-agent framework.</figcaption>
+          <figcaption>Figure 5. Ablation study of the collaborative multi-agent framework for accelerating MCTS-based data mining. For better visualization, a logarithmic scale was used. </figcaption>
         </figure>
       
         <figure>
           <img src="assets/dataset_quality_ablation.png" alt="Experimental results">
-          <figcaption>Figure 6. Ablation study on model-in-the-loop for data quality.</figcaption>
+          <figcaption>Figure 6. Ablation study on model-in-the-loop for data quality. The performances of SR, MSR and DQA at different stages are reported. </figcaption>
         </figure>
-    </section>
+      </section>
+
 
     <section id="bibtex">
       <h2>BibTeX</h2>
