@@ -173,14 +173,17 @@
           class="demo-video__player"
           controls
           playsinline
-          webkit-playsinline
           preload="metadata"
           muted
+          poster="assets/demo_video_poster.jpg"
         >
-          <source src="assets/demo_video.mp4" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2">
-          <!-- 可选：提供备用格式（如果你有） -->
-          <!-- <source src="assets/demo_video.webm" type="video/webm"> -->
-          Your browser does not support the video tag.
+          <!-- 建议先放 mp4（H.264 + AAC），type 不写 codecs 最稳 -->
+          <source src="./assets/demo_video.mp4" type="video/mp4" />
+    
+          <!-- 如果有 webm，作为兜底（vp9/vorbis 或 vp9/opus） -->
+          <source src="./assets/demo_video.webm" type="video/webm" />
+    
+          <p>Your browser does not support the video tag.</p>
         </video>
     
         <figcaption>
@@ -189,6 +192,7 @@
         </figcaption>
       </figure>
     </section>
+
 
 
     <section id="abstract">
