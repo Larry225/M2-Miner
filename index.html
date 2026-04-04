@@ -168,7 +168,10 @@ capabilities of these agents.
     <section id="infrastructure">
       <h2>Infrastructure Framework</h2>
       <p>
-        A layered framework for GUI agent data mining with model-in-the-loop training, comprising data, engine, algorithm, agent, execution, and environment layers.
+        We build a customized infrastructure framework that supports mobile agent data mining and modelin-the-loop training. As illustrated in Fig. 2, the framework adopts a layered architecture, consisting
+of the data layer, engine layer, algorithm layer, agent layer, execution layer, and environment layer.
+Our layered framework unifies GUI agent execution, intent-trajectory data mining, and model training into a whole, thereby forming a customized model-in-the-loop framework that can automatically
+perform end-to-end data mining and training. 
       </p>
 
       <!-- 图片插入示例 1：基础设施框架图 -->
@@ -176,7 +179,7 @@ capabilities of these agents.
         <!-- 方式A：相对路径（推荐） -->
         <img src="assets/Miner_framework.png" alt="Infrastructure Framework figure">
         <figcaption>
-          Figure 2. Infrastructure framework for GUI agent data mining.
+          Figure 2. Infrastructure Framework. A layered framework for GUI agent data mining with modelin-the-loop training, comprising data, engine, algorithm, agent, execution, and environment layers.
         </figcaption>
       </figure>
     </section>
@@ -184,9 +187,14 @@ capabilities of these agents.
     <section id="mitl">
       <h2>Model-In-The-Loop Training Strategy</h2>
       <p>
-        The proposed progressive model-in-the-loop training strategy iteratively improves both the mining success rate and the quality of the generated trajectories.
+        During the mining process, we observe that insufficient capabilities of the InferAgent and
+JudgeAgent led to numerous invalid explorations and inaccurate termination judgments, which resulted in a low mining success rate. Consequently, we design a progressive model-in-the-loop training strategy that iteratively improves the agents’ performance. First, in the warm-up stage, we first
+train the InferAgent and JudgeAgent using public datasets to equip the multi-agent framework with
+basic capability for trajectory mining. Subsequently, leveraging the models obtained in the warm-up
+stage, we conduct continuous training of the InferAgent and JudgeAgent through three stages. At
+each stage, we first generate intents, then use the mining framework to mine trajectory data, and subsequently retrain the model with all intent trajectory data mined prior to this stage. Fig. 3 illustrates
+the intent generation process at each stage. The proposed progressive model-in-the-loop training strategy iteratively improves both the mining success rate and the quality of the generated trajectories.
       </p>
-
       <!-- 图片插入示例 3：训练策略图 -->
       <figure>
         <img src="assets/intent_construct.png" alt="Progressive model-in-the-loop training strategy">
@@ -204,7 +212,7 @@ capabilities of these agents.
 
       <!-- 可选：实验结果图示例 -->
       <figure>
-        <img src="assets/experiments-results.png" alt="Experimental results">
+        <img src="assets/dataset_quality_ablation.png" alt="Experimental results">
         <figcaption>
           Figure 4. Experimental results on mobile GUI benchmarks.
         </figcaption>
