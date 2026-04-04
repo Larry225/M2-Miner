@@ -64,6 +64,24 @@
     }
     /* 让 header 区域里的作者/单位一起居中 */
     header { text-align: center; }
+    .results-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .results-grid figure{
+      margin: 0;
+    }
+    .results-grid figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .results-grid figure.full{
+      grid-column: 1 / -1; /* 跨两列，独占一行 */
+    }
+
   </style>
 </head>
 
@@ -210,41 +228,34 @@ the intent generation process at each stage. The proposed progressive model-in-t
         In comparison to AITZ, which is of a similar scale, our method reduces construction ﻿costs by $6,010. Comparing on per-image cost, our method is 18 times more cost-effective than all other datasets.
       </p>
 
-      <!-- 可选：实验结果图示例 -->
-      <figure>
-        <img src="assets/gui_dataset.png" alt="Experimental results">
-        <figcaption>
-          Figure 4. Statistics of different datasets.
-        </figcaption>
-      </figure>
-      <!-- 可选：实验结果图示例 -->
-      <figure>
-        <img src="assets/dataset_quality" alt="Experimental results">
-        <figcaption>
-          Figure 5. Evaluation of data quality.
-        </figcaption>
-      </figure>
-      <!-- 可选：实验结果图示例 -->
-      <figure>
-        <img src="assets/gui_benchmark.png" alt="Experimental results">
-        <figcaption>
-          Figure 6. Performance comparison on GUI agent benchmarks.
-        </figcaption>
-      </figure>
-      <!-- 可选：实验结果图示例 -->
-      <figure>
-        <img src="assets/mcts_agent_ablation.png" alt="Experimental results">
-        <figcaption>
-          Figure 7. Ablation study of the collaborative multi-agent framework.
-        </figcaption>
-      </figure>
-      <!-- 可选：实验结果图示例 -->
-      <figure>
-        <img src="assets/dataset_quality_ablation.png" alt="Experimental results">
-        <figcaption>
-          Figure 8. Ablation study on model-in-the-loop for data quality.
-        </figcaption>
-      </figure>
+      <section class="results-grid">
+        <!-- Table 1 + Figure 4 同一行 -->
+        <figure>
+          <img src="assets/gui_dataset.png" alt="Experimental results">
+          <figcaption>Table 1. Statistics of different datasets.</figcaption>
+        </figure>
+      
+        <figure>
+          <img src="assets/dataset_quality" alt="Experimental results">
+          <figcaption>Figure 4. Evaluation of data quality.</figcaption>
+        </figure>
+      
+        <!-- Table 2 独占一行（跨两列） -->
+        <figure class="full">
+          <img src="assets/gui_benchmark.png" alt="Experimental results">
+          <figcaption>Table 2. Performance comparison on GUI agent benchmarks.</figcaption>
+        </figure>
+      
+        <!-- Figure 5 + Figure 6 同一行 -->
+        <figure>
+          <img src="assets/mcts_agent_ablation.png" alt="Experimental results">
+          <figcaption>Figure 5. Ablation study of the collaborative multi-agent framework.</figcaption>
+        </figure>
+      
+        <figure>
+          <img src="assets/dataset_quality_ablation.png" alt="Experimental results">
+          <figcaption>Figure 6. Ablation study on model-in-the-loop for data quality.</figcaption>
+        </figure>
     </section>
 
     <footer>
