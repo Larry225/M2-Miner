@@ -67,7 +67,7 @@
     .toc a{color:var(--muted)}
     footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
     .small{font-size:13px}
-    .sup{font-variant-position: super; font-size: 0.8em;}
+    .{font-variant-position: super; font-size: 0.8em;}
     /* 让所有标题居中 */
     h1, h2, h3 {
       text-align: center;
@@ -105,6 +105,14 @@
 
     .results-grid figcaption{
       margin-top: 6px;
+    }
+
+    .sup{
+      font-size: 0.95em;        /* 原来 0.8em 太小，这里接近正常字号 */
+      vertical-align: super;    /* 上角标 */
+      line-height: 0;           /* 避免把行高撑高 */
+      position: relative;
+      top: -0.08em;             /* 轻微上移，按观感微调：-0.05 ~ -0.12 */
     }
 
     .bibtex{
